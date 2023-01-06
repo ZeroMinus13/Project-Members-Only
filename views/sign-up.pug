@@ -1,14 +1,23 @@
 extends layout
 
 block content
+    h2.center Sign Up
     form(method='POST' action="/sign-up")
-      label(for="username") Username :
+
+      label(for="username") Username 
+      if usernameError
+        span.errors= usernameError.msg
+      span.errors #{usernameError}
       input(type="text" name='username' required) 
 
-      label(for="password") Password :
+      label(for="password") Password 
+      if passwordError
+        span.errors= passwordError.msg
       input(type="password" name='password' required) 
 
-      label(for="confirmpassword") Confirm Password :
-      input(type="confirmpassword" name='confirmpassword' required) 
+      label(for="confirmPassword") Confirm Password 
+      if confirmPassError
+        span.errors= confirmPassError.msg
+      input(type="confirmPassword" name='confirmPassword' required) 
 
       button Submit

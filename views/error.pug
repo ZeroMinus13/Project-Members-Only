@@ -2,4 +2,7 @@ extends layout
 
 block content
   h1 Welcome to my homepage!
-  
+  -if (typeof errors !== 'undefined' && errors.length > 0)
+    ul.errors
+      each error in errors
+        li= error.msg

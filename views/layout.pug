@@ -20,19 +20,26 @@ html(lang='en')
             a(href='/joinmembers') Join Members
           li 
             a(href="/messageForm") Add Message 
-          li.color 
+          li.red 
             a(href='/log-out') Sign out
-  block content  
+  block content 
+    if user
+      h2.center Hello #{user.username}!
     if comments.length > 0
       ul.comments
-        each comment in comments 
-          li= comment.user.username
-          li= comment.title
-          li= comment.comment
-          li= comment.timestamp
-          hr
+        each comment in comments
+          div.container 
+            div.usercomment
+              li= comment.title
+              li= comment.comment
+            div.userinfo 
+              li
+                b= comment.user.username
+              li= comment.timestamp.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',hour:'numeric' })
+
     else
-      p.comments No comments found.
+      p.comments.center 
+        b No comments found.
 
 
 

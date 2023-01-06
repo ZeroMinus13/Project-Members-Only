@@ -3,7 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 .navbar {
   background-color: black;
   color: white;
@@ -26,12 +25,15 @@
 li {
   list-style: none;
 }
+
 a {
   text-decoration: none;
 }
+
 a:visited {
   color: unset;
 }
+
 form {
   display: flex;
   padding: 50px;
@@ -39,15 +41,88 @@ form {
   justify-content: center;
   align-items: center;
 }
-.color {
+
+.red {
   color: #ff0000;
 }
-.comments {
+
+.red:hover {
+  color: red !important;
+}
+.container {
+  display: grid;
   margin: 0 auto;
   padding: 20px;
-  background-color: #ddd;
-  width: 500px;
+  max-width: 1000px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.comments > li {
-  padding: 10px;
+.usercomment > li:first-child {
+  font-weight: bold;
+  margin: 10px 0;
+  max-width: 500px;
+}
+.usercomment {
+  margin: 10px 0;
+  padding: 30px;
+}
+
+.userinfo {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  gap: 20px;
+  justify-content: space-evenly;
+}
+
+.center {
+  text-align: center;
+  padding-top: 40px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  margin: 0 auto;
+  padding: 1em;
+}
+@media (max-width: 800px) {
+  form {
+    width: 70%;
+  }
+}
+
+form label {
+  font-weight: bold;
+  padding: 0.8rem;
+}
+
+form input {
+  width: 100%;
+  border: 1px solid #ccc;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  margin-bottom: 1em;
+  padding: 0.5em;
+}
+
+form button {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.6em 1.6em;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+form button:hover {
+  background-color: #aaa;
+  color: black;
+}
+.errors {
+  color: #d00;
+  font-size: 1rem;
+  font-weight: bold;
 }

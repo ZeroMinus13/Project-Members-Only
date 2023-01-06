@@ -9,6 +9,17 @@ const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 const Members = require('./models/membersModel');
 
+const crypto = require('crypto');
+
+const length = 16; // the length of the random string
+
+const randomString = crypto
+  .randomBytes(Math.ceil(length / 2))
+  .toString('hex')
+  .slice(0, length);
+
+console.log(randomString);
+
 const mongoDb = process.env.mongodb;
 mongoose.set('strictQuery', false);
 mongoose.connect(mongoDb, { useUnifiedTopology: true, useNewUrlParser: true });
@@ -24,12 +35,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   session({
-    secret: 'cats',
+    secret: process.env.cookie,
     resave: false,
     saveUninitialized: true,
     expires: new Date(Date.now() + 86400000),
   })
 );
+
 app.use(passport.initialize());
 app.use(passport.session());
 
