@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    form(method='POST' action="/sign-up")
+      label(for="username") Username :
+      input(type="text" name='username' required) 
+
+      label(for="password") Password :
+      input(type="password" name='password' required) 
+
+      label(for="confirmpassword") Confirm Password :
+      input(type="confirmpassword" name='confirmpassword' required) 
+
+      button Submit

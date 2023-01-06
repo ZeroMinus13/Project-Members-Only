@@ -1,0 +1,44 @@
+doctype html
+html(lang='en')
+  head
+    title Members Only
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+  body
+    nav
+      ul.navbar   
+        li
+          a(href="/") Home 
+        li 
+          a(href="/sign-up") Sign Up
+        li 
+          a(href="/sign-in") Sign In
+        if user
+          li 
+            a(href='/joinmembers') Join Members
+          li 
+            a(href="/messageForm") Add Message 
+          li.color 
+            a(href='/log-out') Sign out
+  block content  
+    if comments.length > 0
+      ul.comments
+        each comment in comments 
+          li= comment.user.username
+          li= comment.title
+          li= comment.comment
+          li= comment.timestamp
+          hr
+    else
+      p.comments No comments found.
+
+
+
+
+
+
+    
+      
+
