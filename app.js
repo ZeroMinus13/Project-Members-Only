@@ -9,17 +9,6 @@ const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 const Members = require('./models/membersModel');
 
-const crypto = require('crypto');
-
-const length = 16; // the length of the random string
-
-const randomString = crypto
-  .randomBytes(Math.ceil(length / 2))
-  .toString('hex')
-  .slice(0, length);
-
-console.log(randomString);
-
 const mongoDb = process.env.mongodb;
 mongoose.set('strictQuery', false);
 mongoose.connect(mongoDb, { useUnifiedTopology: true, useNewUrlParser: true });
