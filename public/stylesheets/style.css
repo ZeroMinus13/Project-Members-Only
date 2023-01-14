@@ -6,15 +6,18 @@
 .navbar {
   background-color: black;
   color: white;
-  display: flex;
-  gap: 5px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   justify-content: flex-start;
+  align-items: center;
 }
 
 .navbar > li {
+  display: flex;
+  justify-content: center;
   text-decoration: none;
   font-size: 1.2rem;
-  padding: 10px 20px;
+  padding: 10px 5px;
 }
 
 .navbar > li:hover {
@@ -52,16 +55,22 @@ form {
 .container {
   display: grid;
   margin: 0 auto;
-  padding: 20px;
   max-width: 1000px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 2px 0px #ccc;
+  background-color: #eee;
 }
+
 .usercomment > li:first-child {
   font-weight: bold;
-  margin: 10px 0;
+  font-size: 1.2rem;
+  margin-top: -10px;
+  margin-bottom: 10px;
   max-width: 500px;
 }
+
 .usercomment {
+  display: grid;
+  justify-content: center;
   margin: 10px 0;
   padding: 30px;
 }
@@ -69,15 +78,18 @@ form {
 .userinfo {
   display: flex;
   align-items: center;
-  margin-top: 10px;
   gap: 20px;
-  justify-content: space-evenly;
+  margin-top: 10px;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #ddd;
 }
 
 .center {
   text-align: center;
   padding-top: 40px;
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -86,6 +98,7 @@ form {
   margin: 0 auto;
   padding: 1em;
 }
+
 @media (max-width: 800px) {
   form {
     width: 70%;
@@ -125,4 +138,10 @@ form button:hover {
   color: #d00;
   font-size: 1rem;
   font-weight: bold;
+}
+
+.time {
+  font-size: 0.8rem;
+  color: gray;
+  float: right;
 }

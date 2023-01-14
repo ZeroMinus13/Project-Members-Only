@@ -1,6 +1,6 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
-require('dotenv').config();
 const usersRouter = require('./routes/index');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -83,7 +83,6 @@ app.use(addUser);
 app.use('/', usersRouter);
 
 app.use(function (err, req, res, next) {
-  console.log(err);
   res.render('error');
 });
 

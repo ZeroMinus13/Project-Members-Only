@@ -3,24 +3,23 @@ html(lang='en')
   head
     title Members Only
     meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet', href='/stylesheets/style.css')
-
   body
     nav
       ul.navbar   
-        li
+        li.link
           a(href="/") Home 
-        li 
+        li.link
           a(href="/sign-up") Sign Up
-        li 
+        li.link 
           a(href="/sign-in") Sign In
         if user
-          li 
+          li.link 
             a(href='/joinmembers') Join Members
-          li 
+          li.link 
             a(href="/messageForm") Add Message 
-          li.red 
+          li.red.link 
             a(href='/log-out') Sign out
   block content 
     if user
@@ -29,19 +28,24 @@ html(lang='en')
       ul.comments
         each comment in comments
           div.container 
-            div.usercomment
-              li= comment.title
-              li= comment.comment
-            div.userinfo 
-              li
-                b= comment.user.username
-              li= comment.timestamp.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',hour:'numeric' })
+              ul.usercomment
+                li= comment.title
+                li= comment.comment
+              ul.userinfo 
+                li
+                  b= comment.user.username
+                li.time= comment.timestamp.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',hour:'numeric' })
 
     else
-      p.comments.center 
-        b No comments found.
+      h1.comments.center No comments found.
 
-
+  script.
+    const links = document.querySelectorAll(".link")
+    links.forEach(link => link.addEventListener("click", (e) => {
+      e.preventDefault()
+      const linkRef = e.currentTarget.querySelector("a")
+      window.location = linkRef.href
+    }))
 
 
 
